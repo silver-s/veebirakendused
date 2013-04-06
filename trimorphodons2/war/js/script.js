@@ -156,7 +156,7 @@ function kandideeriKatkestan() {
 
 
 /////////////////////////////
-///      Hääletamine      ///
+///      Hï¿½ï¿½letamine      ///
 ///////////////////////////// 
 
 function haaleta()
@@ -371,3 +371,13 @@ function peidanOtsi() {
     document.getElementById("kandidaadid").style.display="block";
 }
 
+$.getJSON('http://trimorphodons.appspot.com/Nimekiri',
+	function(response) {
+	$.each(response.Kandidaadid, function() { 
+		var row = '<tr><td>'+this.nimi+'</td><td>'+this.vanus+'</td><td>'
+		+this.erakond+'</td><td>'+this.amet+'</td><td>'+this.piirkond
+		+'</td><td><a href="img/kandidaat.png"><img class="thumbnail_photo" src="img/kandidaat.png" alt="kandidaat1"></a></td></tr>';
+		$('#tabel > tbody').append(row);
+		});
+	}
+);	
