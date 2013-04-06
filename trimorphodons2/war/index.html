@@ -46,24 +46,58 @@
 			
 			<div class="sisu_a" id="tulemused" style="display:none;">				
 				<div class="imagebox" id="imagebox1" style="display: block;">
-					<img class="thumbnail" src="img/parteide_loikes.jpg">
+					<table class="tabel" id="tabelerakond">
+						<tr>
+							<th id="name_header"><span title="sorteeri"><a href="javascript:void(0)">Erakond</a></span></th>
+							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">Hääli kokku</a></span></th>
+							<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
+						</tr>
+					<tbody>
+				
+					</tbody>
+					</table>
 				</div>
 				
 				<div class="imagebox" id="imagebox2" style="display: none">
-					<img class="thumbnail" src="img/kaart.gif" >
-					<img class="thumbnail_alt" src="img/tartu_linn.jpg" >
+					<table class="tabel" id="tabelpiirk">
+						<tr>
+							<th id="piirkond_header"><span title="sorteeri"><a href="javascript:void(0)">Piirkond</a></span></th>
+							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">Hääli kokku</a></span></th>
+							<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
+						</tr>
+					<tbody>
+				
+					</tbody>
+					</table>
 				</div>
 				
 				<div class="imagebox" id="imagebox3" style="display: none">
-					<img class="thumbnail" src="img/kandidaadid.jpg">				
-				</div>
+					<table class="tabel" id="tabelknd">
+						<tr>
+							<th id="name_header"><span title="sorteeri"><a href="javascript:void(0)">Nimi</a></span></th>
+							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">Hääli kokku</a></span></th>
+							<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
+						</tr>
+					<tbody>
 				
+					</tbody>
+					</table>				
+				</div>
+				<div class="imagebox" id="imagebox4" style="display: none">
+					<table class="tabel" id="tabelrg">
+					<tbody>
+				
+					</tbody>
+					</table>				
+				</div>
+				<div>
 				<form name='raadionupp' class="radiobutton">
-    					<input type="radio" name="field" value="one" onchange='showElement1()' checked>Kogu riik parteide lõikes<br> 
+    					<input type="radio" name="field" value="one" onchange='showElement1()' checked>Parteide lõikes<br> 
     					<input type="radio" name="field" value="two" onchange='showElement2()'>Piirkondade lõikes<br>
     					<input type="radio" name="field" value="three" onchange='showElement3()'>Kandidaatide lõikes<br>
+						<input type="radio" name="field" value="four" onchange='showElement4()'>Riigi lõikes<br>
 				</form>
-							
+				</div>		
 			</div>
 			
 			<div class="sisu_a" id="ootusel" style="display:none">
@@ -74,10 +108,10 @@
 			<div class="sisu_a" id="kandidaadid" style="display:none;">
 				<div class="search">
 				<h2>Vali piirkond, mille kandidaate soovid näha või kasuta otsingut</h2>
-				<form action="javascript:void(0)" id="kandidaadiOtsinguVorm">
+				<form action="#">
 					
 					<input id ="kandidaadiOtsing" name="otsitavNimi" class="input" type="text" placeholder="Kandidaadi nimi">
-					<select name="otsitavPiirkond">
+					<select>
 						<option selected disabled value="VALI">VALI PIIRKOND</option>
 						<option value="Harjumaa">Harjumaa</option>
 						<option value="Hiiumaa">Hiiumaa</option>

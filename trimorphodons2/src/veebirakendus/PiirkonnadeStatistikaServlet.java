@@ -4,20 +4,20 @@ import com.google.appengine.api.rdbms.AppEngineDriver;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.http.*;
 import java.sql.*;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.kandidaat;
+import model.haaled;
 
+public class PiirkonnadeStatistikaServlet extends HttpServlet {
 
-public class KandidaadiNimekiriServlet extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -34,24 +34,22 @@ public class KandidaadiNimekiriServlet extends HttpServlet {
 			DriverManager.registerDriver(new AppEngineDriver());
 			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
 			Statement statement = c.createStatement();
-			ResultSet result = statement.executeQuery("SELECT kandidaat.nimi, " +
-					"kandidaat.sünniaeg, erakond.nimi, " +
-					"kandidaat.töökoht, piirkond.nimi "+ 
-					"FROM kandidaat, piirkond, erakond " + 
-					"WHERE kandidaat.erakonna_id = erakond.id AND " +
-					"kandidaat.piirkonna_id = piirkond.id;");
-			
+			ResultSet result = statement.executeQuery("SELECT piirkond.nimi, " +
+					"COUNT(haaletaja.valitu_id),  (SELECT COUNT(*)  FROM haaletaja) " +
+					"FROM piirkond, haaletaja, kandidaat WHERE haaletaja.valitu_id " +
+					"= kandidaat.id AND kandidaat.piirkonna_id = piirkond.id GROUP BY " +
+					"piirkond.nimi;");
+	
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
-			ArrayList<kandidaat> list = new ArrayList<kandidaat> ();
+			ArrayList<haaled> list = new ArrayList<haaled> ();
 			
 			while (result.next()) {
-				kandidaat can = new kandidaat(result.getString(1),
-						result.getString(2),result.getString(3),
-						result.getString(4), result.getString(5));
-				list.add(can);
+				haaled a = new haaled(result.getString(1),
+						result.getInt(2),result.getInt(3));
+				list.add(a);
 				}
-			String cand = gson.toJson(list);
-			out.println("{\"Kandidaadid\":"+cand+"}");
+			String haaled = gson.toJson(list);
+			out.println("{\"Haaled\":"+haaled+"}");
 			result.close();
 			statement.close();
 			c.close();
@@ -60,4 +58,6 @@ public class KandidaadiNimekiriServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+	
 }
+

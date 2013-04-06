@@ -50,15 +50,42 @@
  <servlet-mapping>
   <servlet-name>KandidaadiNimekiriServlet</servlet-name>
   <url-pattern>/Nimekiri</url-pattern>
- </servlet-mapping>  
+ </servlet-mapping>
  
-<servlet>
- <servlet-name>KandidaadiOtsingServlet</servlet-name>
- <servlet-class>veebirakendus.KandidaadiOtsingServlet</servlet-class>
-</servlet>
-<servlet-mapping>
- <servlet-name>KandidaadiOtsingServlet</servlet-name>
- <url-pattern>/Otsing</url-pattern>
-</servlet-mapping> 
+ <servlet>
+ <servlet-name>KandidaadiStatistikaServlet</servlet-name>
+  <servlet-class>veebirakendus.KandidaadiStatistikaServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>KandidaadiStatistikaServlet</servlet-name>
+  <url-pattern>/KandidaadiSt</url-pattern>
+ </servlet-mapping> 
+ 
+ <servlet>
+ <servlet-name>ErakonnadeStatistikaServlet</servlet-name>
+  <servlet-class>veebirakendus.ErakonnadeStatistikaServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>ErakonnadeStatistikaServlet</servlet-name>
+  <url-pattern>/ErakonnadeSt</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+ <servlet-name>PiirkonnadeStatistikaServlet</servlet-name>
+  <servlet-class>veebirakendus.PiirkonnadeStatistikaServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>PiirkonnadeStatistikaServlet</servlet-name>
+  <url-pattern>/PiirkonnadeSt</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+ <servlet-name>RiigiStServlet</servlet-name>
+  <servlet-class>veebirakendus.RiigiStServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>RiigiStServlet</servlet-name>
+  <url-pattern>/RiigiSt</url-pattern>
+ </servlet-mapping>
   
 </web-app>

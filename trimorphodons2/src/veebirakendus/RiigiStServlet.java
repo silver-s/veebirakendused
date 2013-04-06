@@ -4,20 +4,20 @@ import com.google.appengine.api.rdbms.AppEngineDriver;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.http.*;
 import java.sql.*;
-import java.util.ArrayList;
+
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.kandidaat;
+import model.haaled;
 
+public class RiigiStServlet extends HttpServlet {
 
-public class KandidaadiNimekiriServlet extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -34,24 +34,13 @@ public class KandidaadiNimekiriServlet extends HttpServlet {
 			DriverManager.registerDriver(new AppEngineDriver());
 			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
 			Statement statement = c.createStatement();
-			ResultSet result = statement.executeQuery("SELECT kandidaat.nimi, " +
-					"kandidaat.sünniaeg, erakond.nimi, " +
-					"kandidaat.töökoht, piirkond.nimi "+ 
-					"FROM kandidaat, piirkond, erakond " + 
-					"WHERE kandidaat.erakonna_id = erakond.id AND " +
-					"kandidaat.piirkonna_id = piirkond.id;");
-			
+			ResultSet result = statement.executeQuery("SELECT COUNT(haaletaja.valitu_id) FROM haaletaja");
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
-			ArrayList<kandidaat> list = new ArrayList<kandidaat> ();
+			result.next();
+			haaled seda = new haaled("Eestimaa",result.getInt(1),result.getInt(1));
 			
-			while (result.next()) {
-				kandidaat can = new kandidaat(result.getString(1),
-						result.getString(2),result.getString(3),
-						result.getString(4), result.getString(5));
-				list.add(can);
-				}
-			String cand = gson.toJson(list);
-			out.println("{\"Kandidaadid\":"+cand+"}");
+			String haaled = gson.toJson(seda);
+			out.println("{\"Haaled\":"+haaled+"}");
 			result.close();
 			statement.close();
 			c.close();
@@ -60,4 +49,5 @@ public class KandidaadiNimekiriServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+	
 }
