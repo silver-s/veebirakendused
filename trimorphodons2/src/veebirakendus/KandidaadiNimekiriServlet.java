@@ -51,6 +51,7 @@ public class KandidaadiNimekiriServlet extends HttpServlet {
 				list.add(can);
 				}
 			String cand = gson.toJson(list);
+			//System.out.println(cand);
 			out.println("{\"Kandidaadid\":"+cand+"}");
 			result.close();
 			statement.close();

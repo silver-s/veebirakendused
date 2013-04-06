@@ -51,5 +51,14 @@
   <servlet-name>KandidaadiNimekiriServlet</servlet-name>
   <url-pattern>/Nimekiri</url-pattern>
  </servlet-mapping>  
+ 
+<servlet>
+ <servlet-name>KandidaadiOtsingServlet</servlet-name>
+ <servlet-class>veebirakendus.KandidaadiOtsingServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+ <servlet-name>KandidaadiOtsingServlet</servlet-name>
+ <url-pattern>/Otsing</url-pattern>
+</servlet-mapping> 
   
 </web-app>
