@@ -1,11 +1,11 @@
-Insallatsioonijuhend
-===============
+Installatsioonijuhend
+================================
 
-Paigaldada andmebaas, eelistatult MySQL.
+* Paigaldada andmebaas, eelistatult MySQL
+
 Andmebaasi struktuuri loomine: 
 
-
-[code]
+```SQL
 CREATE TABLE erakond (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 nimi VARCHAR(255) NOT NULL
@@ -41,13 +41,13 @@ UNIQUE (isikukood),
 FOREIGN KEY (valitu_id) REFERENCES kandidaat(id),
 FOREIGN KEY (piirkonna_id) REFERENCES piirkond(id)
 );
-[/code]
+```
 
 
 
 Testandmete lisamine:
 
-[code]
+```SQL
 INSERT INTO erakond (nimi)
 values ('Roheline');
 INSERT INTO erakond (nimi)
@@ -84,11 +84,11 @@ values ('Gerhard Gätegõverdus', 'kulturist', '1982-06-11', '2', '4');
 
 INSERT INTO haaletaja (nimi, isikukood, valitu_id, piirkonna_id)
 values ('Harald Hamster', 35505263861, '1', '3');
-[/code]
+```
 
 
-Paigaldada Eclipse Google Appengine Pluginiga.
-Luua Eclipse-is uus Google Web Application projekt ning kopeerida GitHubi repositooriumist failid sinna.
-Sisestada projekti seadetest andmebaasi aadress ja kasutajainfo.
-Käivitada Web Application-ina.
+* Paigaldada Eclipse Google Appengine Pluginiga
+* Luua Eclipse-is uus Google Web Application projekt ning kopeerida GitHubi repositooriumist failid sinna
+* Sisestada projekti seadetest andmebaasi aadress ja kasutajainfo
+* Käivitada Web Application-ina
 
