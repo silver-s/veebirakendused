@@ -1,4 +1,4 @@
-﻿$(document).ready(function(){
+$(document).ready(function(){
  $("#valima1").click(function(){
 	 var loader = document.getElementById("sisu");
 	 var divs = loader.getElementsByClassName('sisu_a');
@@ -361,24 +361,43 @@ function showElement3()
 
 //simulatsioon
 function vajutanOtsi() {
-	document.getElementById("kandidaadid").style.display="none";
+	$('#tabel tr:gt(0)').remove();	
+	$.getJSON("Otsing", $("#kandidaadiOtsinguVorm").serialize(), function(response) {
+	 $.each(response.Kandidaadid, function() { 
+		 var row = '<tr><td>'+this.nimi+'</td><td>'+this.vanus+'</td><td>'+this.erakond+'</td><td>'+this.amet+'</td><td>'+this.piirkond +'</td><td><a href="img/kandidaat.png"><img class="thumbnail_photo" src="img/kandidaat.png" alt="kandidaat1"></a></td></tr>';
+		 $('#tabel').append(row);
+	 });
+	 
+ });
+}
+
+	
+	/*document.getElementById("kandidaadid").style.display="none";
 	document.getElementById("ootusel").style.display="block";
-    setTimeout("peidanOtsi()", 1000);  // 1 second
-};
+    setTimeout("peidanOtsi()", 3000);
+}*/
 
 function peidanOtsi() {
-    document.getElementById("ootusel").style.display="none";
-    document.getElementById("kandidaadid").style.display="block";
+	var loader = document.getElementById("sisu");
+	var divs = loader.getElementsByClassName('sisu_a');
+	for(var i=0; i<divs.length; i++) {
+
+		divs[i].style.display="none";
+
+	}
+
+	//document.getElementById("ootusel").style.display="none";
+	document.getElementById("kandidaadid").style.display="block";  
 }
 
 $.getJSON('/Nimekiri',
 	function(response) {
 	$.each(response.Kandidaadid, function() { 
-		var row = '<tr><td>'+this.nimi+'</td><td>'+this.vanus+'</td><td>'+this.erakond+'</td><td>'+this.amet+'</td><td>'+this.piirkond+'</td><td><a href="img/kandidaat.png"><img class="thumbnail_photo" src="img/kandidaat.png" alt="kandidaat1"></a></td></tr>';
-	$('#tabel').append(row);
+		var row = '<tr><td>'+this.nimi+'</td><td>'+this.vanus+'</td><td>'+this.erakond+'</td><td>'+this.amet+'</td><td>'+this.piirkond +'</td><td><a href="img/kandidaat.png"><img class="thumbnail_photo" src="img/kandidaat.png" alt="kandidaat1"></a></td></tr>';
+		$('#tabel').append(row);
 		});
 	}
-);
+);	
 
 $.getJSON('/PiirkonnadeSt',
 	function(response) {
@@ -414,4 +433,16 @@ $.getJSON('/RiigiSt',
 	$('#tabelrg').append(row);
 		});
 	}
-);	
+);
+
+
+
+
+
+
+
+
+
+
+
+

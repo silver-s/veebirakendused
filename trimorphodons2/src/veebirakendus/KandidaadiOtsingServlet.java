@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,16 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 import model.kandidaat;
 
 import com.google.appengine.api.rdbms.AppEngineDriver;
+import com.google.appengine.labs.repackaged.org.json.JSONArray;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class KandidaadiOtsingServlet extends HttpServlet {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		System.out.println("Servlet 'KandidaadiOtsingServlet' on töös");
 		
@@ -76,23 +73,6 @@ public class KandidaadiOtsingServlet extends HttpServlet {
 			//statement.close();
 			c.close();
 			
-			
-			/*
-			resp.setContentType("text/html");
-			resp.setHeader("Cache-control", "no-cache, no-store");
-			resp.setHeader("Pragma", "no-cache");
-			resp.setHeader("Expires", "-1");
-
-			JSONArray arrayObj=new JSONArray();
-
-			while (rs.next()) {
-				arrayObj.put(rs.getString("nimi"));
-			}
-
-			out.println(arrayObj.toString());
-			out.close();
-			*/
-
 
 		} catch (SQLException e) {
 			e.printStackTrace();
