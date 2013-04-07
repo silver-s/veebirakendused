@@ -1,3 +1,30 @@
+window.onload = function() {
+ handleHashOnLoad();
+}
+
+function handleHashOnLoad() {
+    // This method looks for anchor tags, or hashes, in the URL and sets up the tabs appropriately
+    var hash = location.hash;
+    //alert("hash:"+hash);
+    // if we have a hash value from the URL
+    if(hash != "") {
+        // We need to strip off the "#" which is included in the hash value
+        var tabName = hash.substring(1);
+        // Now we call the function to setup the correct tab
+//        swapTab(tabName);
+	var loader = document.getElementById("sisu");
+	var divs = loader.getElementsByClassName('sisu_a');
+	for(var i=0; i<divs.length; i++) {
+		divs[i].style.display="none";
+	}
+
+	document.getElementById(tabName).style.display="block";
+
+    }
+}
+
+
+
 $(document).ready(function(){
  $("#valima1").click(function(){
 	 var loader = document.getElementById("sisu");
@@ -9,6 +36,7 @@ $(document).ready(function(){
 	 }
 
 	 document.getElementById("valima").style.display="block";
+	 window.location.hash = 'valima';
  });
 
  $("#kandidaadid1").click(function(){
@@ -21,6 +49,8 @@ $(document).ready(function(){
 	 }
 
 	 document.getElementById("kandidaadid").style.display="block";
+	 window.location.hash = 'kandidaadid';
+
  });
  $("#avaleht1").click(function(){
 	 var loader = document.getElementById("sisu");
@@ -32,6 +62,7 @@ $(document).ready(function(){
 	 }
 
 	 document.getElementById("pealeht").style.display="block";
+	 
  });
  $("#tulemused1").click(function(){
 	 var loader = document.getElementById("sisu");
@@ -43,6 +74,8 @@ $(document).ready(function(){
 	 }
 
 	 document.getElementById("tulemused").style.display="block";
+	 window.location.hash = 'tulemused';
+
  });
  $("#kandideerijale1").click(function(){
 	 var loader = document.getElementById("sisu");
@@ -54,6 +87,8 @@ $(document).ready(function(){
 	 }
 
 	 document.getElementById("kandideerima").style.display="block";
+ 	 window.location.hash = 'kandideerijale';
+
  });
 });
 
@@ -68,6 +103,7 @@ function valimaSisenen() {
 	 }
 
 	 document.getElementById("valijaTuvastus").style.display="block";
+
 };
  
 function valimaEdasi() {
@@ -337,27 +373,6 @@ source: availableTags
 */
 
 
-//kaardi jaoks!!!
-function showElement1()
-{
-	document.getElementById("imagebox1").style.display="block";
-	document.getElementById("imagebox2").style.display="none";
-	document.getElementById("imagebox3").style.display="none";
-}
-
-function showElement2()
-{
-	document.getElementById("imagebox1").style.display="none";
-	document.getElementById("imagebox2").style.display="block";
-	document.getElementById("imagebox3").style.display="none";
-}
-
-function showElement3()
-{
-	document.getElementById("imagebox1").style.display="none";
-	document.getElementById("imagebox2").style.display="none";
-	document.getElementById("imagebox3").style.display="block";
-}
 
 //simulatsioon
 function vajutanOtsi() {
@@ -435,9 +450,47 @@ $.getJSON('/RiigiSt',
 	}
 );
 
+///////////////////////
+/// Tulemuste leht  ///
+///////////////////////
+function parteideKaupa() {
+	document.getElementById("erakonnaTabel").style.display="block";
+	document.getElementById("koguRiigiTabel").style.display="none";
+	document.getElementById("kandidaatideTabel").style.display="none";  
+	document.getElementById("piirkonnaTabel").style.display="none"; 
+    window.location.hash = 'tulemusedParteid';
+	}; 
+
+function piirkondadeKaupa() {
+	document.getElementById("erakonnaTabel").style.display="none";
+	document.getElementById("koguRiigiTabel").style.display="none";
+	document.getElementById("kandidaatideTabel").style.display="none";  
+	document.getElementById("piirkonnaTabel").style.display="block";  
+    window.location.hash = 'tulemusedPiirkonnad';
+
+}; 
+
+function kandidaatideKaupa() {
+	document.getElementById("erakonnaTabel").style.display="none";
+	document.getElementById("piirkonnaTabel").style.display="none";
+	document.getElementById("koguRiigiTabel").style.display="none";
+	document.getElementById("kandidaatideTabel").style.display="block";
+    window.location.hash = 'tulemusedKandidaadid';
+}; 
+
+function koguRiik() {
+	document.getElementById("erakonnaTabel").style.display="none";
+	document.getElementById("piirkonnaTabel").style.display="none";
+	document.getElementById("koguRiigiTabel").style.display="block";
+	document.getElementById("kandidaatideTabel").style.display="none";
+    window.location.hash = 'tulemusedRiik';
+}; 
 
 
-
+function tyhistaHaal() {
+	$.post("TyhistaHaal");
+	alert("Hääl tühistatud");
+};
 
 
 

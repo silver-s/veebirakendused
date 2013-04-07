@@ -97,5 +97,15 @@
   <url-pattern>/RiigiSt</url-pattern>
  </servlet-mapping>
  
+ 
+ <servlet>
+ <servlet-name>TyhistaHaalServlet</servlet-name>
+  <servlet-class>veebirakendus.TyhistaHaalServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>TyhistaHaalServlet</servlet-name>
+  <url-pattern>/TyhistaHaal</url-pattern>
+ </servlet-mapping>
+ 
 
 </web-app>

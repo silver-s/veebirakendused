@@ -13,6 +13,16 @@ public class haaled {
 		this.hulk = hulk;
 		this.protsent = Math.round(((double)hulk)/((double)kokku)*100.0);
 	}
+
+
+	public void setProtsent(double protsent) {
+		this.protsent = protsent;
+	}
+
+
+	public double getHulk() {
+		return hulk;
+	}
 	
 	
 }

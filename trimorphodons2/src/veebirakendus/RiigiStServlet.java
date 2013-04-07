@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 
 import com.google.gson.Gson;
@@ -25,7 +26,7 @@ public class RiigiStServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		
+		System.out.println("RiigiStServlet on töös");
 		PrintWriter out = resp.getWriter();
 		resp.setContentType("application/json; charset=utf-8");
 		Connection c = null;
@@ -36,10 +37,16 @@ public class RiigiStServlet extends HttpServlet {
 			Statement statement = c.createStatement();
 			ResultSet result = statement.executeQuery("SELECT COUNT(haaletaja.valitu_id) FROM haaletaja");
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
-			result.next();
-			haaled seda = new haaled("Eestimaa",result.getInt(1),result.getInt(1));
+			ArrayList<haaled> list = new ArrayList<haaled> ();
 			
-			String haaled = gson.toJson(seda);
+			result.next();
+			haaled seda = new haaled("Kokku",result.getInt(1),result.getInt(1));
+			double hulk = seda.getHulk();
+			hulk = 6*100/1286540;
+			seda.setProtsent(hulk);
+			list.add(seda);
+			String haaled = gson.toJson(list);
+			System.out.println(haaled);
 			out.println("{\"Haaled\":"+haaled+"}");
 			result.close();
 			statement.close();

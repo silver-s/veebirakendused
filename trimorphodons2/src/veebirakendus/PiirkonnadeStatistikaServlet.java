@@ -49,6 +49,7 @@ public class PiirkonnadeStatistikaServlet extends HttpServlet {
 				list.add(a);
 				}
 			String haaled = gson.toJson(list);
+			System.out.println(haaled);
 			out.println("{\"Haaled\":"+haaled+"}");
 			result.close();
 			statement.close();

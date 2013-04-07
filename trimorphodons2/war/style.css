@@ -516,6 +516,27 @@ a.notactive {
 	display:none;
 }
 
+#tyhistaH22l {
+	width: 150px;
+	background-color: #006CCC;
+	background-image: linear-gradient(to bottom, #0099CC, #0033CC);
+	background-repeat: repeat-x;
+	border-color: #000088;
+	color: #FFFFFF;
+	margin-left:18px;
+}
+
+#vtTulemusi {
+	width: 150px;
+	background-color: #006CCC;
+	background-image: linear-gradient(to bottom, #0099CC, #0033CC);
+	background-repeat: repeat-x;
+	border-color: #000088;
+	color: #FFFFFF;
+	margin-left:20px;
+
+}
+
 
 
 

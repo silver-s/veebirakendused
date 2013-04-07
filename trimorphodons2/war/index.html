@@ -3,14 +3,15 @@
 
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>Trimorphodon</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
+<title>e-valimised</title>
+<link href="style.css" rel="stylesheet" type="text/css">
 <link href="css/print.css" rel="stylesheet" type="text/css"  media="print">
 <link rel="stylesheet" href="css/jquery-ui.css" />
 <script src="js/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 <script src="js/script.js"></script>
 <script src="js/sort.js"></script>
+<script src="js/jquery.ba-hashchange.js"></script>
 </head>
 
 <body>
@@ -44,60 +45,72 @@
 				<p>Järgmised valmised:<br><br> Euroopa Parlamendi valimised<br> juuni 2014<br><br> Riigikogu valimised <br>1. märts 2015<br><br> Vabariigi Presidendi valimine<br> august 2016</p>			
 			</div>
 			
-			<div class="sisu_a" id="tulemused" style="display:none;">				
-				<div class="imagebox" id="imagebox1" style="display: block;">
-					<table class="tabel" id="tabelerakond">
-						<tr>
-							<th id="name_header"><span title="sorteeri"><a href="javascript:void(0)">Erakond</a></span></th>
-							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">Hääli kokku</a></span></th>
-							<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
-						</tr>
-					<tbody>
+			<div class="sisu_a" id="tulemused" style="display:none;">
+				<div id="tulemusteMenyy">
+				<ul id="tulemusteMenyyUL">
+					<li><a href="javascript:void(0)" onclick="parteideKaupa()">Parteide lõikes</a></li>
+					<li><a href="javascript:void(0)" onclick="kandidaatideKaupa()">Kandidaatide lõikes</a></li>
+					<li><a href="javascript:void(0)" onclick="piirkondadeKaupa()">Piirkondade lõikes</a></li>
+					<li><a href="javascript:void(0)" onclick="koguRiik()">Kogu riigi lõikes</a></li>
+				</ul>
+				</div>			
 				
-					</tbody>
-					</table>
-				</div>
-				
-				<div class="imagebox" id="imagebox2" style="display: none">
-					<table class="tabel" id="tabelpiirk">
+				<div class="tulemusteTabel">
+					
+					<div id="erakonnaTabel" class="tabeliDiv">
+						<table class="tabel" id="tabelerakond">
+							<tr>
+								<th id="name_header"><span title="sorteeri"><a href="javascript:void(0)">Erakond</a></span></th>
+								<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">Hääli kokku</a></span></th>
+								<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
+							</tr>
+						<tbody>				
+						</tbody>
+						</table>
+					</div>
+					
+					
+					<div id="piirkonnaTabel" class="tabeliDiv">
+						<table class="tabel" id="tabelpiirk">
 						<tr>
 							<th id="piirkond_header"><span title="sorteeri"><a href="javascript:void(0)">Piirkond</a></span></th>
 							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">Hääli kokku</a></span></th>
 							<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
 						</tr>
-					<tbody>
+						<tbody>
 				
-					</tbody>
-					</table>
-				</div>
-				
-				<div class="imagebox" id="imagebox3" style="display: none">
-					<table class="tabel" id="tabelknd">
+						</tbody>
+						</table>
+					</div>
+
+					<div id="kandidaatideTabel" class="tabeliDiv">
+						<table class="tabel" id="tabelknd">
 						<tr>
 							<th id="name_header"><span title="sorteeri"><a href="javascript:void(0)">Nimi</a></span></th>
 							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">Hääli kokku</a></span></th>
 							<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
 						</tr>
-					<tbody>
+						<tbody>
+						</tbody>
+						</table>
+					</div>
+					
+					
+					<div id="koguRiigiTabel" class="tabeliDiv">
+						<table class="tabel" id="tabelrg">
+						<tr>
+							<th id="name_header"><span title="sorteeri"><a href="javascript:void(0)"></a></span></th>
+							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">Hääletajaid</a></span></th>
+							<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent elanikkonnast</a></span></th>
+						</tr>
+						<tbody>
+						</tbody>
+						</table>	
+					</div>
+					
 				
-					</tbody>
-					</table>				
 				</div>
-				<div class="imagebox" id="imagebox4" style="display: none">
-					<table class="tabel" id="tabelrg">
-					<tbody>
-				
-					</tbody>
-					</table>				
-				</div>
-				<div>
-				<form name='raadionupp' class="radiobutton">
-    					<input type="radio" name="field" value="one" onchange='showElement1()' checked>Parteide lõikes<br> 
-    					<input type="radio" name="field" value="two" onchange='showElement2()'>Piirkondade lõikes<br>
-    					<input type="radio" name="field" value="three" onchange='showElement3()'>Kandidaatide lõikes<br>
-						<input type="radio" name="field" value="four" onchange='showElement4()'>Riigi lõikes<br>
-				</form>
-				</div>		
+		
 			</div>
 			
 			<div class="sisu_a" id="ootusel" style="display:none">
@@ -198,10 +211,22 @@
 							<div class="ankeediRida">
 								<select id="Piirkond" name="Piirkond">
 								<option value="piirkond">Piirkond</option>
+								<option value="4">Harjumaa</option>
+								<option value="5">Hiiumaa</option>
+								<option value="6">Ida-Virumaa</option>
+								<option value="3">Järvamaa</option>
+								<option value="7">Jõgevamaa</option>
+								<option value="8">Läänemaa</option>
+								<option value="9">Lääne-Virumaa</option>
+								<option value="10">Põlvamaa</option>
+								<option value="11">Pärnumaa</option>
+								<option value="12">Raplamaa</option>
+								<option value="13">Saaremaa</option>
 								<option value="1">Tartumaa</option>
 								<option value="2">Valgamaa</option>
-								<option value="3">Järvamaa</option>
-								<option value="4">Harjumaa</option>
+								<option value="14">Viljandimaa</option>
+								<option value="15">Võrumaa</option>
+
 								</select>
 								<span class="ankeetLinnuke" id="piirkondValitud"></span><span class="ankeetRist" id="piirkondPuudu"></span>
 							</div>
@@ -227,7 +252,7 @@
 			
 			<div class="sisu_a" id="kandideerijaTuvastatud" style="display:none;">
 				<div class="kandideeri">
-					<h2>Tere, &#60;NIMI&#62;!</h2>	
+					<h2>Tere tulemast!</h2>	
 					<p>Registreerimine valimisteks on avatud. Teid ei ole hetkel valimiskandidaatide nimekirjas.</p>			
 					<form action="javascript:void(0)">
 						<button class="kandideeri-btn" type="submit" onclick="lisaKandidatuur()">Lisa oma kandidatuur</button>
@@ -276,17 +301,17 @@
 			
 			<div class="sisu_a" id="valijaTuvastus" style="display:none;">
 			<div class="kinnitus">
-				<h2>Tervist &#60;NIMI&#62; !</h2>
-				<h3>Piirkond: &#60;Piirkond&#62;</h3>
+				<h2>Tere Harald Hamster!</h2>
+				<h3>Piirkond: Järvamaa</h3>
 				<form action="" id="haaletamine-valik" name="haaletajaValik">
 
-				<select>
+				<!--<select>
 					<option selected disabled>Vali Erakond</option>
 					<option>Isamaa ja Res Publica Liit</option>
 					<option>Sotsiaaldemokraatlik Erakond</option>
 					<option>Eesti Reformierakond</option>
 					<option>Eesti Keskerakond</option>
-				</select> <br>
+				</select> <br>-->
 				<br> <select name="kandidaadiNimi" id="kandidaadiNimi">
 					<option selected disabled>Vali Kandidaat</option>
 					<option>Ferdinand Fuksia</option>
@@ -307,9 +332,10 @@
 			
 			<div class="sisu_a" id="valijaT2namine" style="display:none;">
 				<div class="kinnitatud">
-					<h3>Täname hääletamast! Teie hääl on Eestile oluline.</h3>
-					
+					<h3>Olete andnud oma hääle.</h3>
 				</div>
+				<button id="tyhistaH22l" type="submit" onclick="tyhistaHaal()">Tühista hääl</button>
+				<!--<button id="vtTulemusi" type="submit" onclick="">Vaata tulemusi</button>-->
 			</div>
 			
 			
