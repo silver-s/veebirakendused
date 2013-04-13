@@ -46,7 +46,6 @@ public class RiigiStServlet extends HttpServlet {
 			seda.setProtsent(hulk);
 			list.add(seda);
 			String haaled = gson.toJson(list);
-			System.out.println(haaled);
 			out.println("{\"Haaled\":"+haaled+"}");
 			result.close();
 			statement.close();

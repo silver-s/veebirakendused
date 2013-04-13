@@ -28,6 +28,7 @@ public class KandidaadiOtsingServlet extends HttpServlet {
 		Connection c = null;
 		try {
 			PrintWriter out = resp.getWriter();
+			resp.setContentType("application/json; charset=utf-8");
 			DriverManager.registerDriver(new AppEngineDriver());
 			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");			
 			String qry = "'"+req.getParameter("otsitavNimi")+"%'";

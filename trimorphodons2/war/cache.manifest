@@ -1,0 +1,21 @@
+CACHE MANIFEST
+
+CACHE:
+/css/style.css
+/css/print.css
+/js/jquery-1.9.1.js
+/js/script.js
+/js/sort.js
+/js/jquery.ba-hashchange.js
+/js/jquery.ba-bbq.js
+/css/jquery-ui.css
+/img/html5_badge.png
+/img/pilt1.jpg
+/img/kandidaat.png
+/img/ui-anim_basic_16x16.gif
+/img/waiting.gif
+/favicon.ico
+index.html
+
+NETWORK:
+*
