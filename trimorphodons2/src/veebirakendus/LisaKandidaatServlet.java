@@ -26,13 +26,11 @@ public class LisaKandidaatServlet extends HttpServlet {
 	      DriverManager.registerDriver(new AppEngineDriver());
 	      c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
 	      String nimi = "'" + req.getParameter("nimi") + "'";
-	      if (nimi.contains("<script>")) {
-	    	  return;
-	      }
 	      String erakond = req.getParameter("Erakond");
 	      String piirkond = req.getParameter("Piirkond");
 	      String töökoht = "'" + req.getParameter("telefon") + "'";
-	      if (töökoht.contains("<script>")) {
+	      if (töökoht.contains("<") || nimi.contains("<") ) {
+	    	  System.out.println("Nice try");
 	    	  return;
 	      }
 	      String sünd = "'" + req.getParameter("meil") + "'";

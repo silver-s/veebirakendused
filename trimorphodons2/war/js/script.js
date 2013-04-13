@@ -62,6 +62,7 @@ $(document).ready(function(){
 	 }
 
 	 document.getElementById("pealeht").style.display="block";
+	 window.location.hash = 'pealeht';
 	 
  });
  $("#tulemused1").click(function(){
@@ -204,6 +205,7 @@ function haaleta()
 else
  {
  $.post("Haaleta", $("#kandidaadiNimi").serialize());
+ $.post("UuendaKandidaadid");
  
  var loader = document.getElementById("sisu");
  var divs = loader.getElementsByClassName('sisu_a');
@@ -278,7 +280,7 @@ else
  {
  kandidaadiAnkeet.meil.className="ankeetVigane";
  document.getElementById('emailKorras').innerHTML = "";
- document.getElementById('emailPuudu').innerHTML = "&#x2717; Sisestage e-maili aadress";
+ document.getElementById('emailPuudu').innerHTML = "&#x2717; Sisestage sünniaeg";
  ankeetVigane=true;
  }
  
@@ -324,7 +326,7 @@ if (ankeetVigane==true)
 
 
 $.post("LisaKandidaat", $("#ankeediVorm").serialize());
-
+$.post("UuendaKandidaadid");
 
 var loader = document.getElementById("sisu");
 var divs = loader.getElementsByClassName('sisu_a');
@@ -374,7 +376,7 @@ source: availableTags
 
 
 
-//simulatsioon
+
 function vajutanOtsi() {
 	$('#tabel tr:gt(0)').remove();	
 	$.getJSON("Otsing", $("#kandidaadiOtsinguVorm").serialize(), function(response) {
@@ -404,6 +406,7 @@ function peidanOtsi() {
 	//document.getElementById("ootusel").style.display="none";
 	document.getElementById("kandidaadid").style.display="block";  
 }
+
 
 
 $.ajax({
@@ -617,6 +620,7 @@ function koguRiik() {
 
 function tyhistaHaal() {
 	$.post("TyhistaHaal");
+	$.post("UuendaKandidaadid");
 	alert("Hääl tühistatud");
 };
 

@@ -33,6 +33,16 @@
   <url-pattern>/PakuKandidaat</url-pattern>
  </servlet-mapping>
   
+  
+ <servlet>
+  <servlet-name>KandidaadiUuendusServlet</servlet-name>
+  <servlet-class>veebirakendus.KandidaadiUuendusServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>KandidaadiUuendusServlet</servlet-name>
+  <url-pattern>/UuendaKandidaadid</url-pattern>
+ </servlet-mapping>
+  
    
  <servlet>
  <servlet-name>HaaletaServlet</servlet-name>
@@ -106,6 +116,18 @@
   <servlet-name>TyhistaHaalServlet</servlet-name>
   <url-pattern>/TyhistaHaal</url-pattern>
  </servlet-mapping>
+ 
+  
+ <servlet>
+ <servlet-name>GetTokenServlet</servlet-name>
+  <servlet-class>veebirakendus.GetTokenServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>GetTokenServlet</servlet-name>
+  <url-pattern>/GetToken</url-pattern>
+ </servlet-mapping>
+ 
+ 
  
 
 </web-app>
