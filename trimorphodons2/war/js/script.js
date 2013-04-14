@@ -1,7 +1,50 @@
+/*$( document ).ready(function() {
+	var stateObj={};
+	history.pushState(stateObj, "avaleht", "pealeht");
+});*/
+
+
 window.onload = function() {
- handleHashOnLoad();
+ //handleHashOnLoad();
+ //navigeeri();
 }
 
+/*
+window.onpopstate = function(event) {
+	var location1 = new String(document.location);
+	var location2 = new String("");
+	location2 = location1.replace("http://localhost:8888/","");
+	if (location2 == "")
+	{
+		location2.replace("", "pealeht");
+		
+	}
+	//alert("location: " + document.location + ", window location.pathname: " + location2);
+	var loader = document.getElementById("sisu");
+	var divs = loader.getElementsByClassName('sisu_a');
+	for(var i=0; i<divs.length; i++) {
+		divs[i].style.display="none";
+	}
+	document.getElementById(location2).style.display="block";
+   
+	};*/
+
+/*
+function navigeeri() {
+	var currentState = history.state;
+	alert(currentState);
+    var loader = document.getElementById("sisu");
+	var divs = loader.getElementsByClassName('sisu_a');
+	for(var i=0; i<divs.length; i++) {
+		divs[i].style.display="none";
+	}
+	document.getElementById(currentState).style.display="block";
+   
+}*/
+
+
+
+/*
 function handleHashOnLoad() {
     // This method looks for anchor tags, or hashes, in the URL and sets up the tabs appropriately
     var hash = location.hash;
@@ -21,7 +64,8 @@ function handleHashOnLoad() {
 	document.getElementById(tabName).style.display="block";
 
     }
-}
+}*/
+
 
 
 
@@ -36,7 +80,10 @@ $(document).ready(function(){
 	 }
 
 	 document.getElementById("valima").style.display="block";
-	 window.location.hash = 'valima';
+	 //window.location.hash = 'valima';
+	 
+	 var stateObj = {};
+	 history.pushState(stateObj, "valima", "valima");
  });
 
  $("#kandidaadid1").click(function(){
@@ -49,7 +96,9 @@ $(document).ready(function(){
 	 }
 
 	 document.getElementById("kandidaadid").style.display="block";
-	 window.location.hash = 'kandidaadid';
+	 //window.location.hash = 'kandidaadid';
+	 var stateObj = {};
+	 history.pushState(stateObj, "kandidaadid", "kandidaadid");
 
  });
  $("#avaleht1").click(function(){
@@ -62,7 +111,9 @@ $(document).ready(function(){
 	 }
 
 	 document.getElementById("pealeht").style.display="block";
-	 window.location.hash = 'pealeht';
+	 //window.location.hash = 'pealeht';
+	 /*var stateObj = {};
+	 history.pushState(stateObj, "avaleht", "pealeht");*/
 	 
  });
  $("#tulemused1").click(function(){
@@ -75,8 +126,9 @@ $(document).ready(function(){
 	 }
 
 	 document.getElementById("tulemused").style.display="block";
-	 window.location.hash = 'tulemused';
-
+	 //window.location.hash = 'tulemused';
+	 var stateObj = {};
+	 history.pushState(stateObj, "tulemused", "tulemused");
  });
  $("#kandideerijale1").click(function(){
 	 var loader = document.getElementById("sisu");
@@ -88,7 +140,9 @@ $(document).ready(function(){
 	 }
 
 	 document.getElementById("kandideerima").style.display="block";
- 	 window.location.hash = 'kandideerijale';
+ 	 //window.location.hash = 'kandideerijale';
+	 var stateObj = {};
+	 history.pushState(stateObj, "", "kandideerima");
 
  });
 });
@@ -104,6 +158,8 @@ function valimaSisenen() {
 	 }
 
 	 document.getElementById("valijaTuvastus").style.display="block";
+	 window.location.hash = 'valijaTuvastus';
+
 
 };
  

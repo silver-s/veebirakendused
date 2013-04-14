@@ -13,6 +13,10 @@
   <url-pattern>/_ah/spi/*</url-pattern>
  </servlet-mapping>
  
+ <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+</welcome-file-list>
+ 
  
  <servlet>
   <servlet-name>LisaKandidaatServlet</servlet-name>
@@ -125,6 +129,15 @@
  <servlet-mapping>
   <servlet-name>GetTokenServlet</servlet-name>
   <url-pattern>/GetToken</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+ <servlet-name>LoginServlet</servlet-name>
+  <servlet-class>veebirakendus.LoginServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>LoginServlet</servlet-name>
+  <url-pattern>/login</url-pattern>
  </servlet-mapping>
  
  
