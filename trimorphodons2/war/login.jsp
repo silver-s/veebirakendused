@@ -16,6 +16,7 @@
 </head>
 
 <body>
+	
 
 	<div class="container">
 		
@@ -26,7 +27,7 @@
 				</div>
 				
 				<div class="banner-right">
-					<h1>Antud rakendus ei ole m√µeldud kasutamiseks reaalsetel valimistel!</h1>
+					<h1>Antud rakendus ei ole mıeldud kasutamiseks reaalsetel valimistel!</h1>
 				</div>	
 			</div>
 			
@@ -41,10 +42,18 @@
 			</ul>
 		</div>
 		
+		<div class="loginBar">
+			<div class="loginBarInfo">
+				<p>Sisselogitud kasutaja: ${nimi}</p><!-- <a href="javascript:void(0)" onclick="FB.logout()"> Logi v‰lja</a> -->
+			</div>
+		
+		</div>
+		
+		
 		<div class="subcontainer" id="sisu" style="display:block;">
 			<div class="sisu_a" id="pealeht" style="display:none;">
 				
-				<p>J√§rgmised valmised:<br><br> Euroopa Parlamendi valimised<br> juuni 2014<br><br> Riigikogu valimised <br>1. m√§rts 2015<br><br> Vabariigi Presidendi valimine<br> august 2016</p>			
+				<p>J‰rgmised valmised:<br><br> Euroopa Parlamendi valimised<br> juuni 2014<br><br> Riigikogu valimised <br>1. m‰rts 2015<br><br> Vabariigi Presidendi valimine<br> august 2016</p>			
 			</div>
 			
 			<div class="sisu_a" id="tulemused" style="display:none;">
@@ -63,7 +72,7 @@
 						<table class="tabel" id="tabelerakond">
 							<tr>
 								<th id="name_header"><span title="sorteeri"><a href="javascript:void(0)">Erakond</a></span></th>
-								<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">H√§√§li kokku</a></span></th>
+								<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">H‰‰li kokku</a></span></th>
 								<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
 							</tr>
 						<tbody>				
@@ -76,7 +85,7 @@
 						<table class="tabel" id="tabelpiirk">
 						<tr>
 							<th id="piirkond_header"><span title="sorteeri"><a href="javascript:void(0)">Piirkond</a></span></th>
-							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">H√§√§li kokku</a></span></th>
+							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">H‰‰li kokku</a></span></th>
 							<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
 						</tr>
 						<tbody>
@@ -89,7 +98,7 @@
 						<table class="tabel" id="tabelknd">
 						<tr>
 							<th id="name_header"><span title="sorteeri"><a href="javascript:void(0)">Nimi</a></span></th>
-							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">H√§√§li kokku</a></span></th>
+							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">H‰‰li kokku</a></span></th>
 							<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
 						</tr>
 						<tbody>
@@ -102,7 +111,7 @@
 						<table class="tabel" id="tabelrg">
 						<tr>
 							<th id="name_header"><span title="sorteeri"><a href="javascript:void(0)"></a></span></th>
-							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">H√§√§letajaid</a></span></th>
+							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">H‰‰letajaid</a></span></th>
 							<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent elanikkonnast</a></span></th>
 						</tr>
 						<tbody>
@@ -122,7 +131,7 @@
 			
 			<div class="sisu_a" id="kandidaadid" style="display:none;">
 				<div class="search">
-				<h2>Vali piirkond, mille kandidaate soovid n√§ha v√µi kasuta otsingut</h2>
+				<h2>Vali piirkond, mille kandidaate soovid n‰ha vıi kasuta otsingut</h2>
 				<form action="javascript:void(0)" id="kandidaadiOtsinguVorm">
 					
 					<input id ="kandidaadiOtsing" name="otsitavNimi" class="input" type="text" placeholder="Kandidaadi nimi">
@@ -303,7 +312,7 @@
 			
 			<div class="sisu_a" id="valijaTuvastus" style="display:none;">
 			<div class="kinnitus">
-				<h3>Valige kandidaat kellele soovite oma h√§√§le anda.</h3>
+				<h3>Valige kandidaat kellele soovite oma h‰‰le anda.</h3>
 				<form action="" id="haaletamine-valik" name="haaletajaValik">
 
 				<!--<select>
@@ -319,7 +328,7 @@
 					<option>Ildegaard Ilumeel</option>
 					<option>Leila Lagerfeld</option>
 					<option>Eduard Ekskavaator</option>
-					<option>Gerhard G√§teg√µverdus</option>
+					<option>Gerhard G‰tegıverdus</option>
 				</select> <br>
 				<br>
 				</form>
@@ -333,16 +342,16 @@
 			
 			<div class="sisu_a" id="valijaT2namine" style="display:none;">
 				<div class="kinnitatud">
-					<h3>Olete andnud oma h√§√§le.</h3>
+					<h3>Olete andnud oma h‰‰le.</h3>
 				</div>
-				<button id="tyhistaH22l" type="submit" onclick="tyhistaHaal()">T√ºhista h√§√§l</button>
+				<button id="tyhistaH22l" type="submit" onclick="tyhistaHaal()">T¸hista h‰‰l</button>
 				<!--<button id="vtTulemusi" type="submit" onclick="">Vaata tulemusi</button>-->
 			</div>
 			
 			
 			<div class="sisu_a" id="kasutajaAutentitud" style="display:block;">
 				<div class="kinnitatud">
-					<h3>Olete edukalt sisse loginud!</h3>
+					<h3>Tere, ${nimi} . Olete edukalt sisse loginud!</h3>
 				</div>
 			</div>
 			
