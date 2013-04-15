@@ -85,6 +85,8 @@ public class LoginServlet extends HttpServlet {
                middleNames = null;
 
            lastName = json.getString("last_name");
+           
+           resp.sendRedirect("login.html");
 
        } catch (JSONException e) {
 
