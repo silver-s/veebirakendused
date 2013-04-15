@@ -17,11 +17,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.google.appengine.api.rdbms.AppEngineDriver;
-import com.google.gson.Gson;
  
 @SuppressWarnings("serial")
 public class LoginServlet extends HttpServlet {
@@ -91,13 +89,6 @@ public class LoginServlet extends HttpServlet {
 
        lastName = json.getString("last_name");
 
-       //System.out.println(lastName);
-       /*
-       } catch (Exception e) {
-    	   e.printStackTrace();
-       }
-        */
-
 
 
        try {
@@ -113,16 +104,6 @@ public class LoginServlet extends HttpServlet {
     	   stmt.executeUpdate();
     	   System.out.println(nimi);
 
-
-    	   /*
-	      req.getSession().setAttribute("nimi", nimi);
-	      resp.sendRedirect("login.html");
-    	    */
-    	   /*
-	      resp.sendRedirect("login.jsp");
-	      req.setAttribute("nimi", nimi); 
-	      req.getRequestDispatcher("login.jsp").forward(req, resp);
-    	    */
        } catch (SQLException e) {
     	   e.printStackTrace();
        }
@@ -133,15 +114,8 @@ public class LoginServlet extends HttpServlet {
        try {
     	   req.getRequestDispatcher("login.jsp").forward(req, resp);
        } catch (ServletException e) {
-    	   // TODO Auto-generated catch block
     	   e.printStackTrace();
        }
-
-       /*
-       req.getSession().setAttribute("nimi", nimi);
-       resp.sendRedirect("login.jsp");
-        */
-
 
 
 

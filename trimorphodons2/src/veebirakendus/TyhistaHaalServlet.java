@@ -26,7 +26,7 @@ public class TyhistaHaalServlet extends HttpServlet {
 		try {
 			DriverManager.registerDriver(new AppEngineDriver());
 			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
-			String nimi = "'Harald Hamster'";
+			String nimi = "'"+req.getParameter("haaletajaNimi")+"'";
 			String statement = "UPDATE haaletaja SET valitu_id = Null WHERE nimi =" + nimi;
 			System.out.println(statement);
 			PreparedStatement stmt = c.prepareStatement(statement);

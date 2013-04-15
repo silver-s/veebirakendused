@@ -260,7 +260,7 @@ function haaleta()
  }
 else
  {
- $.post("Haaleta", $("#kandidaadiNimi").serialize());
+ $.post("Haaleta", $("#haaletamine-valik").serialize());
  $.post("UuendaKandidaadid");
  
  var loader = document.getElementById("sisu");
@@ -477,6 +477,11 @@ $.ajax({
 			var row = '<tr><td>'+this.nimi+'</td><td>'+this.vanus+'</td><td>'+this.erakond+'</td><td>'+this.amet+'</td><td>'+this.piirkond +'</td><td><a href="img/kandidaat.png"><img class="thumbnail_photo" src="img/kandidaat.png" alt="kandidaat1"></a></td></tr>';
 			$('#tabel').append(row);
 		});
+        
+        $.each(data.Kandidaadid, function() { 
+			var row = '<option>'+this.nimi+'</option>';
+			$('#kandidaadiNimi').append(row);
+		});
     },
 	error: function(){
 		var data = jQuery.parseJSON(window.localStorage.getItem('nimekiri'));
@@ -484,6 +489,16 @@ $.ajax({
 			var row = '<tr><td>'+this.nimi+'</td><td>'+this.vanus+'</td><td>'+this.erakond+'</td><td>'+this.amet+'</td><td>'+this.piirkond +'</td><td><a href="img/kandidaat.png"><img class="thumbnail_photo" src="img/kandidaat.png" alt="kandidaat1"></a></td></tr>';
 			$('#tabel').append(row);
 		});
+		
+		// hääletamislehe valikud
+		
+		$.each(data.Kandidaadid, function() { 
+			var row = '<option>'+this.nimi+'</option>';
+			$('#kandidaadiNimi').append(row);
+		});
+		
+		
+		
     } 
 });
 
@@ -675,13 +690,16 @@ function koguRiik() {
 
 
 function tyhistaHaal() {
-	$.post("TyhistaHaal");
+	$.post("TyhistaHaal", $("#haaletajaNimi").serialize());
+	
 	$.post("UuendaKandidaadid");
 	alert("Hääl tühistatud");
 };
 
 
-
+function logout() {
+	window.location = "/";
+};
 
 
 
