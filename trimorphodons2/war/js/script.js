@@ -652,7 +652,7 @@ function piirkondadeKaupa() {
 	document.getElementById("erakonnaTabel").style.display="none";
 	document.getElementById("koguRiigiTabel").style.display="none";
 	document.getElementById("kandidaatideTabel").style.display="none";  
-	document.getElementById("piirkonnaTabel").style.display="block";  
+	document.getElementById("piirkonnaTabel").style.display="block";
     window.location.hash = 'tulemusedPiirkonnad';
 
 }; 
@@ -672,18 +672,250 @@ function koguRiik() {
 	document.getElementById("kandidaatideTabel").style.display="none";
     window.location.hash = 'tulemusedRiik';
 }; 
-
-
+ 
 function tyhistaHaal() {
 	$.post("TyhistaHaal");
 	$.post("UuendaKandidaadid");
 	alert("Hääl tühistatud");
 };
 
+/*function initialize() {
+	var Trtm=new google.maps.LatLng(59.9,26.441);
+	var mapProp = {
+		center:new google.maps.LatLng(59.9,21), zoom:7, mapTypeId:google.maps.MapTypeId.ROADMAP};
+	var map=new google.maps.Map(document.getElementById("Kaart"),mapProp);
+	map.checkResize()
+	
+	var marker=new google.maps.Marker({
+  position:Trtm,
+  });
+
+marker.setMap(map);
+};*/
 
 
 
+function initialize()
+{
+var myCenter = new google.maps.LatLng(59.9,21);
+var TartumaaLoc = new google.maps.LatLng(58.36611,26.73611);
+var HarjumaaLoc = new google.maps.LatLng(59.32389,24.83806);
+var ValgamaaLoc = new google.maps.LatLng(58.07417,26.14528);
+var HiiumaaLoc = new google.maps.LatLng(58.89778,22.64917);
+var IdaVirumaaLoc = new google.maps.LatLng(59.19972,27.35472);
+var JogevamaaLoc = new google.maps.LatLng(58.74667,26.39389);
+var LaanemaaLoc = new google.maps.LatLng(58.94306,23.64139);
+var LaaneVirumaaLoc = new google.maps.LatLng(59.14639,26.35556);
+var PolvamaaLoc = new google.maps.LatLng(58.06028,27.06917);
+var ParnumaaLoc = new google.maps.LatLng(58.47472,24.71083);
+var RaplamaaLoc = new google.maps.LatLng(58.90722,24.79278);
+var SaaremaaLoc = new google.maps.LatLng(58.34806,22.50389);
+var ViljandimaaLoc = new google.maps.LatLng(58.36389,25.59);
+var VorumaaLoc = new google.maps.LatLng(57.63389,27.01917);
+var JarvamaaLoc = new google.maps.LatLng(58.88556,25.55722);
 
+var mapProp = {
+  center:myCenter,
+  zoom:7,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
 
+var map=new google.maps.Map(document.getElementById("Kaart"),mapProp);
 
+var markerTartumaa=new google.maps.Marker({
+  position:TartumaaLoc,
+  });
+  
+var markerHarjumaa=new google.maps.Marker({
+  position:HarjumaaLoc,
+  });
+  
+var markerValgamaa=new google.maps.Marker({
+  position:ValgamaaLoc,
+  });
+  
+var markerHiiumaa=new google.maps.Marker({
+  position:HiiumaaLoc,
+  });
 
+var markerIdaVirumaa=new google.maps.Marker({
+  position:IdaVirumaaLoc,
+  });
+
+var markerJogevamaa=new google.maps.Marker({
+  position:JogevamaaLoc,
+  });
+
+var markerLaanemaa=new google.maps.Marker({
+  position:LaanemaaLoc,
+  });  
+
+var markerLaaneVirumaa=new google.maps.Marker({
+  position:LaaneVirumaaLoc,
+  });
+
+var markerPolvamaa=new google.maps.Marker({
+  position:PolvamaaLoc,
+  });
+
+var markerParnumaa=new google.maps.Marker({
+  position:ParnumaaLoc,
+  });
+ 
+var markerRaplamaa=new google.maps.Marker({
+  position:RaplamaaLoc,
+  });
+
+var markerSaaremaa=new google.maps.Marker({
+  position:SaaremaaLoc,
+  });
+ 
+var markerViljandimaa=new google.maps.Marker({
+  position:ViljandimaaLoc,
+  });
+  
+var markerVorumaa=new google.maps.Marker({
+  position:VorumaaLoc,
+  });
+  
+var markerJarvamaa=new google.maps.Marker({
+  position:JarvamaaLoc,
+  });
+
+markerTartumaa.setMap(map);
+markerHarjumaa.setMap(map);
+markerValgamaa.setMap(map);
+markerHiiumaa.setMap(map);
+markerIdaVirumaa.setMap(map);
+markerJogevamaa.setMap(map);
+markerLaanemaa.setMap(map);
+markerLaaneVirumaa.setMap(map);
+markerPolvamaa.setMap(map);
+markerParnumaa.setMap(map);
+markerRaplamaa.setMap(map);
+markerSaaremaa.setMap(map);
+markerViljandimaa.setMap(map);
+markerVorumaa.setMap(map);
+markerJarvamaa.setMap(map);
+
+var infoTartumaa = new google.maps.InfoWindow({
+  content:"Tartumaa piirkond"
+  });
+
+google.maps.event.addListener(markerTartumaa, 'click', function() {
+  infoTartumaa.open(map,markerTartumaa);
+  });
+  
+var infoHarjumaa = new google.maps.InfoWindow({
+  content:"Harjumaa piirkond"
+  });
+
+google.maps.event.addListener(markerHarjumaa, 'click', function() {
+  infoHarjumaa.open(map,markerHarjumaa);
+  });
+  
+var infoValgamaa = new google.maps.InfoWindow({
+  content:"Valgamaa piirkond"
+  });
+
+google.maps.event.addListener(markerValgamaa, 'click', function() {
+  infoValgamaa.open(map,markerValgamaa);
+  });
+
+var infoHiiumaa = new google.maps.InfoWindow({
+  content:"Hiiumaa piirkond"
+  });
+
+google.maps.event.addListener(markerHiiumaa, 'click', function() {
+  infoHiiumaa.open(map,markerHiiumaa);
+  });
+
+var infoIdaVirumaa = new google.maps.InfoWindow({
+  content:"Ida-Virumaa piirkond"
+  });
+
+google.maps.event.addListener(markerIdaVirumaa, 'click', function() {
+  infoIdaVirumaa.open(map,markerIdaVirumaa);
+  });
+ 
+var infoJogevamaa = new google.maps.InfoWindow({
+  content:"Jõgevamaa piirkond"
+  });
+
+google.maps.event.addListener(markerJogevamaa, 'click', function() {
+  infoJogevamaa.open(map,markerJogevamaa);
+  });
+
+var infoLaanemaa = new google.maps.InfoWindow({
+  content:"Läänemaa piirkond"
+  });
+
+google.maps.event.addListener(markerLaanemaa, 'click', function() {
+  infoLaanemaa.open(map,markerLaanemaa);
+  });
+  
+var infoLaaneVirumaa = new google.maps.InfoWindow({
+  content:"Lääne-Virumaa piirkond"
+  });
+
+google.maps.event.addListener(markerLaaneVirumaa, 'click', function() {
+  infoLaaneVirumaa.open(map,markerLaaneVirumaa);
+  });
+  
+var infoPolvamaa = new google.maps.InfoWindow({
+  content:"Põlvamaa piirkond"
+  });
+
+google.maps.event.addListener(markerPolvamaa, 'click', function() {
+  infoPolvamaa.open(map,markerPolvamaa);
+  });
+
+var infoParnumaa = new google.maps.InfoWindow({
+  content:"Pärnumaa piirkond"
+  });
+
+google.maps.event.addListener(markerParnumaa, 'click', function() {
+  infoParnumaa.open(map,markerParnumaa);
+  });
+
+var infoRaplamaa = new google.maps.InfoWindow({
+  content:"Raplamaa piirkond"
+  });
+
+google.maps.event.addListener(markerRaplamaa, 'click', function() {
+  infoRaplamaa.open(map,markerRaplamaa);
+  });
+
+var infoSaaremaa = new google.maps.InfoWindow({
+  content:"Saaremaa piirkond"
+  });
+
+google.maps.event.addListener(markerSaaremaa, 'click', function() {
+  infoSaaremaa.open(map,markerSaaremaa);
+  });
+
+var infoViljandimaa = new google.maps.InfoWindow({
+  content:"Viljandimaa piirkond"
+  });
+
+google.maps.event.addListener(markerViljandimaa, 'click', function() {
+  infoViljandimaa.open(map,markerViljandimaa);
+  });
+
+var infoVorumaa = new google.maps.InfoWindow({
+  content:"Võrumaa piirkond"
+  });
+
+google.maps.event.addListener(markerVorumaa, 'click', function() {
+  infoVorumaa.open(map,markerVorumaa);
+  });  
+
+var infoJarvamaa = new google.maps.InfoWindow({
+  content:"Järvamaa piirkond"
+  });
+
+google.maps.event.addListener(markerJarvamaa, 'click', function() {
+  infoJarvamaa.open(map,markerJarvamaa);
+  });
+  
+};

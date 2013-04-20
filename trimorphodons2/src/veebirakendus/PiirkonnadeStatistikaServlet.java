@@ -35,7 +35,7 @@ public class PiirkonnadeStatistikaServlet extends HttpServlet {
 			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
 			Statement statement = c.createStatement();
 			ResultSet result = statement.executeQuery("SELECT piirkond.nimi, " +
-					"COUNT(haaletaja.valitu_id),  (SELECT COUNT(*)  FROM haaletaja) " +
+					"COUNT(haaletaja.valitu_id),  (SELECT COUNT(haaletaja.valitu_id)  FROM haaletaja) " +
 					"FROM piirkond, haaletaja, kandidaat WHERE haaletaja.valitu_id " +
 					"= kandidaat.id AND kandidaat.piirkonna_id = piirkond.id GROUP BY " +
 					"piirkond.nimi;");

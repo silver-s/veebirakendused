@@ -35,7 +35,7 @@ public class KandidaadiStatistikaServlet extends HttpServlet {
 			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
 			Statement statement = c.createStatement();
 			ResultSet result = statement.executeQuery("SELECT kandidaat.nimi " +
-					"as kandidaat, COUNT(valitu_id) AS haali, (SELECT COUNT(*)  " +
+					"as kandidaat, COUNT(valitu_id) AS haali, (SELECT COUNT(haaletaja.valitu_id)  " +
 					"FROM haaletaja) FROM kandidaat, haaletaja WHERE " +
 					"haaletaja.valitu_id = kandidaat.id GROUP BY kandidaat.nimi;");
 	

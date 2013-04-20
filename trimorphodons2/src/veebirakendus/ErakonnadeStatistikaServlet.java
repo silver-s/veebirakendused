@@ -35,10 +35,10 @@ public class ErakonnadeStatistikaServlet extends HttpServlet {
 			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
 			Statement statement = c.createStatement();
 			ResultSet result = statement.executeQuery("SELECT erakond.nimi, " +
-					"COUNT(haaletaja.valitu_id), (SELECT COUNT(*)  FROM haaletaja)" +
+					"COUNT(haaletaja.valitu_id), (SELECT COUNT(haaletaja.valitu_id)  FROM haaletaja)" +
 					" FROM erakond, haaletaja,kandidaat WHERE valitu_id=kandidaat.id" +
 					" AND kandidaat.erakonna_id = erakond.id GROUP BY erakond.nimi;");
-	
+			
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			ArrayList<haaled> list = new ArrayList<haaled> ();
 			
