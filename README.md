@@ -6,6 +6,11 @@ Installatsioonijuhend
 Andmebaasi struktuuri loomine: 
 
 ```SQL
+CREATE TABLE client (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+clientID int NOT NULL
+);
+
 CREATE TABLE erakond (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 nimi VARCHAR(255) NOT NULL
