@@ -1,6 +1,8 @@
-Installatsioonijuhend
+5. etapi (HTML5) installatsioonijuhend
 ================================
 
+##NB: Tagitud versioonis on aegunud juhend.   
+  
 * Paigaldada andmebaas, eelistatult MySQL
 
 Andmebaasi struktuuri loomine: 
