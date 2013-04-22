@@ -1,7 +1,7 @@
 var cID=Math.floor(Math.random()*1000000);
 $.get("GetToken", { kliendiID: cID}, function(data) {
 	token = data;
-	channel = new goog.appengine.Channel(token);
+	channel = new goog.appengine.Channel(token.trim());
 	socket = channel.open();
 	socket.onopen = onOpened;
 	socket.onmessage = onMessage;

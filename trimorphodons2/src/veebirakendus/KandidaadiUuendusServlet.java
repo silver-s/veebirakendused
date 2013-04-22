@@ -40,7 +40,11 @@ public class KandidaadiUuendusServlet extends HttpServlet {
 
 	    	while (result.next()) {
 	    		String id = result.getString("clientId");
+	    		try {
 	    		channelService.sendMessage(new ChannelMessage(id, "update"));
+	    		}
+	    		catch (Exception e) {
+	    		}
 	    	}
 	    	result.close();
 	    	c.close();
