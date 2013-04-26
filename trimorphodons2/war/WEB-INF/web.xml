@@ -141,6 +141,14 @@
  </servlet-mapping>
  
  
+  <servlet>
+ <servlet-name>ClearTestChangesServlet</servlet-name>
+  <servlet-class>veebirakendus.ClearTestChangesServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>ClearTestChangesServlet</servlet-name>
+  <url-pattern>/clearChanges</url-pattern>
+ </servlet-mapping>
  
 
 </web-app>
