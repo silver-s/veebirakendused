@@ -700,7 +700,7 @@ function initialize()
 var myCenter = new google.maps.LatLng(59.9,21);
 var TartumaaLoc = new google.maps.LatLng(58.36611,26.73611);
 var HarjumaaLoc = new google.maps.LatLng(59.32389,24.83806);
-var ValgamaaLoc = new google.maps.LatLng(58.07417,26.14528);
+var ValgamaaLoc = new google.maps.LatLng(58.0,26.14528);
 var HiiumaaLoc = new google.maps.LatLng(58.89778,22.64917);
 var IdaVirumaaLoc = new google.maps.LatLng(59.19972,27.35472);
 var JogevamaaLoc = new google.maps.LatLng(58.74667,26.39389);
@@ -711,7 +711,7 @@ var ParnumaaLoc = new google.maps.LatLng(58.47472,24.71083);
 var RaplamaaLoc = new google.maps.LatLng(58.90722,24.79278);
 var SaaremaaLoc = new google.maps.LatLng(58.34806,22.50389);
 var ViljandimaaLoc = new google.maps.LatLng(58.36389,25.59);
-var VorumaaLoc = new google.maps.LatLng(57.63389,27.01917);
+var VorumaaLoc = new google.maps.LatLng(57.73389,27.01917);
 var JarvamaaLoc = new google.maps.LatLng(58.88556,25.55722);
 
 var mapProp = {
@@ -725,62 +725,77 @@ var map=new google.maps.Map(document.getElementById("Kaart"),mapProp);
 var markerTartumaa=new google.maps.Marker({
   position:TartumaaLoc,
   });
+  markerTartumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
   
 var markerHarjumaa=new google.maps.Marker({
   position:HarjumaaLoc,
   });
+  markerHarjumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
   
 var markerValgamaa=new google.maps.Marker({
   position:ValgamaaLoc,
   });
+  markerValgamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
   
 var markerHiiumaa=new google.maps.Marker({
   position:HiiumaaLoc,
   });
+  markerHiiumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
 
 var markerIdaVirumaa=new google.maps.Marker({
   position:IdaVirumaaLoc,
   });
+  markerIdaVirumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
 
 var markerJogevamaa=new google.maps.Marker({
   position:JogevamaaLoc,
   });
+  markerJogevamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
 
 var markerLaanemaa=new google.maps.Marker({
   position:LaanemaaLoc,
-  });  
+  });
+  markerLaanemaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
 
 var markerLaaneVirumaa=new google.maps.Marker({
   position:LaaneVirumaaLoc,
   });
+  markerLaaneVirumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
 
 var markerPolvamaa=new google.maps.Marker({
   position:PolvamaaLoc,
   });
+  markerPolvamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
 
 var markerParnumaa=new google.maps.Marker({
   position:ParnumaaLoc,
   });
+  markerParnumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
  
 var markerRaplamaa=new google.maps.Marker({
   position:RaplamaaLoc,
   });
+  markerRaplamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
 
 var markerSaaremaa=new google.maps.Marker({
   position:SaaremaaLoc,
   });
+  markerSaaremaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
  
 var markerViljandimaa=new google.maps.Marker({
-  position:ViljandimaaLoc,
+  position:ViljandimaaLoc
   });
-  
+  markerViljandimaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
+   
 var markerVorumaa=new google.maps.Marker({
-  position:VorumaaLoc,
+  position:VorumaaLoc
   });
+  markerVorumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
   
 var markerJarvamaa=new google.maps.Marker({
   position:JarvamaaLoc,
   });
+  markerJarvamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/pink.png');
 
 markerTartumaa.setMap(map);
 markerHarjumaa.setMap(map);
@@ -805,7 +820,7 @@ var infoTartumaa = new google.maps.InfoWindow({
 google.maps.event.addListener(markerTartumaa, 'click', function() {
   infoTartumaa.open(map,markerTartumaa);
   });
-  
+    
 var infoHarjumaa = new google.maps.InfoWindow({
   content:"Harjumaa piirkond"
   });
@@ -917,5 +932,366 @@ var infoJarvamaa = new google.maps.InfoWindow({
 google.maps.event.addListener(markerJarvamaa, 'click', function() {
   infoJarvamaa.open(map,markerJarvamaa);
   });
+
   
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"1"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerTartumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerTartumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerTartumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerTartumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoTartumaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoTartumaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"2"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerValgamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerValgamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerValgamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerValgamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoValgamaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoValgamaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"3"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerJarvamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerJarvamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerJarvamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerJarvamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoJarvamaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoJarvamaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"4"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerHarjumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerHarjumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerHarjumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerHarjumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoHarjumaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoHarjumaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"5"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerHiiumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerHiiumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerHiiumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerHiiumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoHiiumaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoHiiumaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"6"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerIdaVirumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerIdaVirumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerIdaVirumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerIdaVirumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoIdaVirumaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoIdaVirumaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"7"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerJogevamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerJogevamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerJogevamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerJogevamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoJogevamaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoJogevamaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"8"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerLaanemaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerLaanemaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerLaanemaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerLaanemaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoLaanemaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoLaanemaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"9"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerLaaneVirumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerLaaneVirumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerLaaneVirumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerLaaneVirumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoLaaneVirumaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoLaaneVirumaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"10"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerPolvamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerPolvamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerPolvamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerPolvamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoPolvamaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoPolvamaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"11"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerParnumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerParnumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerParnumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerParnumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoParnumaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoParnumaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"12"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerRaplamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerRaplamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerRaplamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerRaplamaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoRaplamaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoRaplamaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"13"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerSaaremaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerSaaremaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerSaaremaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerSaaremaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoSaaremaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoSaaremaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"14"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerViljandimaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerViljandimaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerViljandimaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerViljandimaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoViljandimaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoViljandimaa.setContent(cont);
+    }
+});
+
+$.ajax({
+	type: "POST",
+    url: "/PES",
+    dataType : "json",
+	data:{"id":"15"},
+    success: function (data) {
+		if(data.Haaled[0].kedamida == "Pruun"){
+			markerVorumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+		}
+		else if(data.Haaled[0].kedamida == "Roheline"){
+			markerVorumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+		}
+		else if(data.Haaled[0].kedamida == "Kollane"){
+			markerVorumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow.png');
+		}
+		else if(data.Haaled[0].kedamida == "Sinine"){
+			markerVorumaa.setIcon('http://maps.google.com/mapfiles/ms/icons/blue.png');
+		}
+		var cont = infoVorumaa.getContent();
+		cont += "<br> Liider: "+data.Haaled[0].kedamida+" Erakond <br>"+data.Haaled[0].protsent+"%";
+		infoVorumaa.setContent(cont);
+    }
+});
+
 };

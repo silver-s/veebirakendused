@@ -11,7 +11,7 @@ public class haaled {
 		super();
 		this.kedamida = kedamida;
 		this.hulk = hulk;
-		this.protsent = Math.round(((double)hulk)/((double)kokku)*100.0);
+		this.protsent = Math.round(((double)hulk)/((double)kokku)*10000.0)/100.0;
 	}
 
 

@@ -150,5 +150,13 @@
   <url-pattern>/clearChanges</url-pattern>
  </servlet-mapping>
  
+  <servlet>
+ <servlet-name>PiirkonnaErakonnaServlet</servlet-name>
+  <servlet-class>veebirakendus.PiirkonnaErakonnaServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>PiirkonnaErakonnaServlet</servlet-name>
+  <url-pattern>/PES</url-pattern>
+ </servlet-mapping>
 
 </web-app>
