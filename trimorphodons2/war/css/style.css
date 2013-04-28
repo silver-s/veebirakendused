@@ -567,3 +567,9 @@ margin-left:20px;
 	display:inline;
 
 }
+
+#legend {
+    background: white;
+    padding: 10px;
+	font-size: small;
+  }

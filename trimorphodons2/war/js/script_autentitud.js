@@ -704,7 +704,7 @@ function logout() {
 
 function initialize()
 {
-var myCenter = new google.maps.LatLng(59.9,21);
+var myCenter = new google.maps.LatLng(59.9,21.5);
 var TartumaaLoc = new google.maps.LatLng(58.36611,26.73611);
 var HarjumaaLoc = new google.maps.LatLng(59.32389,24.83806);
 var ValgamaaLoc = new google.maps.LatLng(58.0,26.14528);
@@ -724,6 +724,7 @@ var JarvamaaLoc = new google.maps.LatLng(58.88556,25.55722);
 var mapProp = {
   center:myCenter,
   zoom:7,
+  disableDefaultUI:true,
   mapTypeId:google.maps.MapTypeId.ROADMAP
   };
 
@@ -1300,8 +1301,15 @@ $.ajax({
 		infoVorumaa.setContent(cont);
     }
 });
+map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+  document.getElementById('legend'));
+var legend = document.getElementById('legend');
+for (var style in styles) {
+  var name = style.name;
+  var icon = style.icon;
+  var div = document.createElement('div');
+  div.innerHTML = '<img src="' + icon + '"> ' + name;
+  legend.appendChild(div);
+}
 
 };
-
-
-

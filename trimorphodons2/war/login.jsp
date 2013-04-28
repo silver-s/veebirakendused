@@ -129,6 +129,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					<div id="Kaart" class="Kaart" style="width:740px;height:500px;">
 						
 					</div>
+					<div class="legend" id="legend">
+							<b>Legend</b>
+							<hr>
+							Juhtiv erakond piirkonnas<br>
+							<img src="http://maps.google.com/mapfiles/ms/icons/red.png"> Pruun Erakond<br>
+							<img src="http://maps.google.com/mapfiles/ms/icons/blue.png"> Sinine Erakond<br>
+							<img src="http://maps.google.com/mapfiles/ms/icons/yellow.png"> Kollane Erakond<br>
+							<img src="http://maps.google.com/mapfiles/ms/icons/green.png"> Roheline Erakond<br>
+							<img src="http://maps.google.com/mapfiles/ms/icons/pink.png"> Andmed puuduvad
+						</div>
 				
 				</div>
 		
