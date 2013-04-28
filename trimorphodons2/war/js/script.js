@@ -1293,5 +1293,6 @@ $.ajax({
 		infoVorumaa.setContent(cont);
     }
 });
-
+map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+  document.getElementById('legend'));
 };
