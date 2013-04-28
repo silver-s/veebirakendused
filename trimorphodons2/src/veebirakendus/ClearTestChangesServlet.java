@@ -18,7 +18,7 @@ public class ClearTestChangesServlet extends HttpServlet {
 
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-			
+		System.out.println("Clearing changes");
 		Connection c = null;
 		try {
 

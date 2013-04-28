@@ -1,5 +1,7 @@
 package tests;
 
+import java.net.URL;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,8 +20,8 @@ public class kandidaadiRegistreerimineTest {
 	///////////////////////////////////////////////////////
 	// TESTIDE AJAL KASUTATAV FACEBOOKI E-MAIL JA PAROOL //
 	///////////////////////////////////////////////////////
-	private String fb_email = "lafferx@gmail.com";
-	private String fb_parool = "testimine";				
+	private String fb_email = "";
+	private String fb_parool = "";				
 	///////////////////////////////////////////////////////
 
 	@Before
@@ -73,11 +75,14 @@ public class kandidaadiRegistreerimineTest {
         e.printStackTrace();
 		}*/
 		selenium.stop();
-		ClearTestChangesServlet clear =  new ClearTestChangesServlet();
+		/*ClearTestChangesServlet clear =  new ClearTestChangesServlet();
 		HttpServletResponse resp = null;
 		HttpServletRequest req = null;
 		clear.doPost(req, resp);
-	
+		*/
+		
+		URL url = new URL("http://www.trimorphodons.appspot.com/clearChanges");
+		url.openConnection();
 		}
 		
 }
