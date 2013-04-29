@@ -1,8 +1,20 @@
-5. etapi (HTML5) installatsioonijuhend
+6. etapi installatsioonijuhend
 ================================
 
-##NB: Tagitud versioonis on aegunud juhend.   
-  
+### Kehtib ka 5.nda kodutöö kohta (v.a verifitseerimise osa)
+
+
+## Verifitseerimine
+
+* Sisestada 'haaletamineTest.java' ja 'kandidaadiRegistreerimineTest.java' testidesse oma facebooki konto info
+* Komipleerida testid
+* Käivitada Seleniumi server (Windowsi all võib jooksutada lihtsalt 'start-selenium-server.cmd' skripti)
+* Projekti kaustas anda käsk 'ant'
+* Raport testide tulemuste kohta tekib kausta 'reports/html'
+
+
+## Rakenduse paigaldamine
+
 * Paigaldada andmebaas, eelistatult MySQL
 
 Andmebaasi struktuuri loomine: 
@@ -97,5 +109,6 @@ values ('Harald Hamster', 35505263861, '1', '3');
 * Paigaldada Eclipse Google Appengine Pluginiga
 * Luua Eclipse-is uus Google Web Application projekt ning kopeerida GitHubi repositooriumist failid sinna
 * Sisestada projekti seadetest andmebaasi aadress ja kasutajainfo
+* Määrata servletides ja testides oma andmebaasi aadress 
 * Käivitada Web Application-ina
 
