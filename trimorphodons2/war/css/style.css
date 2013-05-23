@@ -426,7 +426,7 @@ a.notactive {
 	margin-top: 10px;
 	margin-bottom: 20px;
 	padding-left: 15px;
-	padding-top: -10px;
+	/*padding-top: -10px;*/
 	background-color: #79FF79;
 }
 
@@ -499,9 +499,6 @@ a.notactive {
 	font-weight: 600;
 }
 
-.tulemusteTabel {
-
-}
 
 
 #piirkonnaTabel {

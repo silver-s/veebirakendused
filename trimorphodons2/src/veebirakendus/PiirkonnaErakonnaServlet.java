@@ -35,7 +35,7 @@ public class PiirkonnaErakonnaServlet extends HttpServlet {
 		
 		try {
 			DriverManager.registerDriver(new AppEngineDriver());
-			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
+			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendused/andmebaas");
 			Statement statement = c.createStatement();
 			ResultSet result = statement.executeQuery("SELECT tabel.erakond " +
 					",COUNT(tabel.erakond) as haali, (SELECT COUNT(piirkonna_id) " +

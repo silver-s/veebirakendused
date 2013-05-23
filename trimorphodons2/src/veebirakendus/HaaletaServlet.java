@@ -22,7 +22,7 @@ public class HaaletaServlet extends HttpServlet {
 		Connection c = null;
 		try {
 			DriverManager.registerDriver(new AppEngineDriver());
-			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
+			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendused/andmebaas");
 
 			String kandidaat = "'"+req.getParameter("kandidaadiNimi")+"'";
 			String haaletaja = "'"+req.getParameter("haaletajaNimi")+"'";

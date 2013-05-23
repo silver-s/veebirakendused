@@ -723,6 +723,8 @@ var mapProp = {
 
 var map=new google.maps.Map(document.getElementById("Kaart"),mapProp);
 
+google.maps.event.trigger(map,'resize');
+
 var markerTartumaa=new google.maps.Marker({
   position:TartumaaLoc,
   });
@@ -1306,3 +1308,4 @@ for (var style in styles) {
 }
 
 };
+

@@ -10,7 +10,6 @@ body{
 }
 
 .sisu {
-	visible: none;
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
 	margin: 15px;
@@ -31,7 +30,7 @@ body{
 
 .imagebox{
 	position: relative;
-	text-allign: center;
+	/*text-align: center;*/
 }
 
 .jalus{

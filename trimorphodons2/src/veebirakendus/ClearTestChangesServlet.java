@@ -23,7 +23,7 @@ public class ClearTestChangesServlet extends HttpServlet {
 		try {
 
 			DriverManager.registerDriver(new AppEngineDriver());
-			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
+			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendused/andmebaas");
 			String statement = "delete from kandidaat where nimi = 'Tandi Kaat'";
 			PreparedStatement stmt = c.prepareStatement(statement);
 			stmt.executeUpdate();

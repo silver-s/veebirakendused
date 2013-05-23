@@ -34,7 +34,7 @@ public class GetTokenServlet extends HttpServlet {
 	    Connection c = null;
 	    try {
 	      DriverManager.registerDriver(new AppEngineDriver());
-	      c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
+	      c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendused/andmebaas");
 	      String statement = "INSERT INTO client ( clientID ) VALUES ( " + userId + " )";
 	      System.out.println(statement);
 	      PreparedStatement stmt = c.prepareStatement(statement);

@@ -30,7 +30,7 @@ public class KandidaadiOtsingServlet extends HttpServlet {
 			PrintWriter out = resp.getWriter();
 			resp.setContentType("application/json; charset=utf-8"); 
 			DriverManager.registerDriver(new AppEngineDriver());
-			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");			
+			c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendused/andmebaas");			
 			String qry = "'"+req.getParameter("otsitavNimi")+"%'";
 			String prk = "'"+req.getParameter("otsitavPiirkond")+"'";
 			String statement = "";

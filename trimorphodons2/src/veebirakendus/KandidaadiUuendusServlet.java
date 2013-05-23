@@ -31,7 +31,7 @@ public class KandidaadiUuendusServlet extends HttpServlet {
 	    try {
 
 	    	DriverManager.registerDriver(new AppEngineDriver());
-	    	c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");			
+	    	c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendused/andmebaas");			
 
 	    	String statement = "SELECT clientID FROM client";
 	    	ResultSet result = c.createStatement().executeQuery(statement);

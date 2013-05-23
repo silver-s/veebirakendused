@@ -95,7 +95,7 @@ public class LoginServlet extends HttpServlet {
     	   Connection c = null;
 
     	   DriverManager.registerDriver(new AppEngineDriver());
-    	   c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
+    	   c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendused/andmebaas");
 
     	   String nimi = "'"+firstName + " " + lastName+"'";
     	   String statement = "insert into haaletaja ( nimi ) values (" + nimi +" )";

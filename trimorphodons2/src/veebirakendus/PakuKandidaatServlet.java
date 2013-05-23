@@ -28,7 +28,7 @@ public class PakuKandidaatServlet extends HttpServlet {
 	    try {
 	      PrintWriter out = resp.getWriter();
 	      DriverManager.registerDriver(new AppEngineDriver());
-	      c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
+	      c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendused/andmebaas");
 	      String qry = "'"+req.getParameter("term")+"%'";
 	      ResultSet rs = c.createStatement().executeQuery("SELECT nimi FROM kandidaat where nimi like " + qry);
 	      

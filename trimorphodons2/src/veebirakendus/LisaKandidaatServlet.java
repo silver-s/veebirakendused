@@ -24,7 +24,7 @@ public class LisaKandidaatServlet extends HttpServlet {
 		Connection c = null;
 	    try {
 	      DriverManager.registerDriver(new AppEngineDriver());
-	      c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendus/andmebaas");
+	      c = DriverManager.getConnection("jdbc:google:rdbms://trmrphdn:veebirakendused/andmebaas");
 	      String nimi = "'" + req.getParameter("nimi") + "'";
 	      String erakond = req.getParameter("Erakond");
 	      String piirkond = req.getParameter("Piirkond");
