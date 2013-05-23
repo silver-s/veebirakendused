@@ -67,9 +67,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					<div id="erakonnaTabel" class="tabeliDiv">
 						<table class="tabel" id="tabelerakond">
 							<tr>
-								<th id="name_header"><span title="sorteeri"><a href="javascript:void(0)">Erakond</a></span></th>
-								<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">Hääli kokku</a></span></th>
-								<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
+								<th><span title="sorteeri"><a href="javascript:void(0)">Erakond</a></span></th>
+								<th><span title="sorteeri"><a href="javascript:void(0)">Hääli kokku</a></span></th>
+								<th><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
 							</tr>
 						<tbody>				
 						</tbody>
@@ -80,9 +80,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					<div id="piirkonnaTabel" class="tabeliDiv">
 						<table class="tabel" id="tabelpiirk">
 						<tr>
-							<th id="piirkond_header"><span title="sorteeri"><a href="javascript:void(0)">Piirkond</a></span></th>
-							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">Hääli kokku</a></span></th>
-							<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
+							<th><span title="sorteeri"><a href="javascript:void(0)">Piirkond</a></span></th>
+							<th><span title="sorteeri"><a href="javascript:void(0)">Hääli kokku</a></span></th>
+							<th><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
 						</tr>
 						<tbody>
 				
@@ -93,9 +93,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					<div id="kandidaatideTabel" class="tabeliDiv">
 						<table class="tabel" id="tabelknd">
 						<tr>
-							<th id="name_header"><span title="sorteeri"><a href="javascript:void(0)">Nimi</a></span></th>
-							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">Hääli kokku</a></span></th>
-							<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
+							<th><span title="sorteeri"><a href="javascript:void(0)">Nimi</a></span></th>
+							<th><span title="sorteeri"><a href="javascript:void(0)">Hääli kokku</a></span></th>
+							<th><span title="sorteeri"><a href="javascript:void(0)">Protsent</a></span></th>
 						</tr>
 						<tbody>
 						</tbody>
@@ -106,9 +106,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					<div id="koguRiigiTabel" class="tabeliDiv">
 						<table class="tabel" id="tabelrg">
 						<tr>
-							<th id="name_header"><span title="sorteeri"><a href="javascript:void(0)"></a></span></th>
-							<th	id="vote_header"><span title="sorteeri"><a href="javascript:void(0)">Hääletajaid</a></span></th>
-							<th	id="protsent_header"><span title="sorteeri"><a href="javascript:void(0)">Protsent elanikkonnast</a></span></th>
+							<th><span title="sorteeri"><a href="javascript:void(0)"></a></span></th>
+							<th><span title="sorteeri"><a href="javascript:void(0)">Hääletajaid</a></span></th>
+							<th><span title="sorteeri"><a href="javascript:void(0)">Protsent elanikkonnast</a></span></th>
 						</tr>
 						<tbody>
 						</tbody>
@@ -116,9 +116,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					</div>
 					
 					<div id="Kaart" class="Kaart" style="width:740px;height:500px;">
-					<script>
-					google.maps.event.trigger(map, "resize");
-					</script>
 						
 						
 					</div>
@@ -126,11 +123,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
 							<b>Legend</b>
 							<hr>
 							Juhtiv erakond piirkonnas<br>
-							<img src="http://maps.google.com/mapfiles/ms/icons/red.png"> Pruun Erakond<br>
-							<img src="http://maps.google.com/mapfiles/ms/icons/blue.png"> Sinine Erakond<br>
-							<img src="http://maps.google.com/mapfiles/ms/icons/yellow.png"> Kollane Erakond<br>
-							<img src="http://maps.google.com/mapfiles/ms/icons/green.png"> Roheline Erakond<br>
-							<img src="http://maps.google.com/mapfiles/ms/icons/pink.png"> Andmed puuduvad
+							<img src="http://maps.google.com/mapfiles/ms/icons/red.png" alt="punane marker"> Pruun Erakond<br>
+							<img src="http://maps.google.com/mapfiles/ms/icons/blue.png" alt="sinine marker"> Sinine Erakond<br>
+							<img src="http://maps.google.com/mapfiles/ms/icons/yellow.png" alt="kollane marker"> Kollane Erakond<br>
+							<img src="http://maps.google.com/mapfiles/ms/icons/green.png" alt="roheline marker"> Roheline Erakond<br>
+							<img src="http://maps.google.com/mapfiles/ms/icons/pink.png" alt="roosa marker"> Andmed puuduvad
 						</div>
 				
 				</div>
@@ -138,7 +135,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			</div>
 			
 			<div class="sisu_a" id="ootusel" style="display:none">
-				<img src="img/waiting.gif">
+				<img src="img/waiting.gif" alt="Laadimas...">
 				<p>Otsin...</p>
 			</div>
 			
@@ -189,7 +186,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<div class="login">
 					<h2>Oma kandidatuuri lisamiseks pead sisse logima.</h2>
 					<a href="http://www.facebook.com/dialog/oauth?client_id=354733337962261&redirect_uri=http://trimorphodons.appspot.com/login">
-					<img src="/img/login-via-facebook.png" alt="login" id="login">
+					<img src="/img/login-via-facebook.png" alt="login">
 					</a>
 					<!--<input class="input" type="text" placeholder="Kasutajanimi">
 					<input class="input" type="password" placeholder="Parool">
@@ -203,7 +200,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<div class="login">
 					<h2>Hääletamiseks pead end kõigepealt tuvastama.</h2>
 					<a href="http://www.facebook.com/dialog/oauth?client_id=354733337962261&redirect_uri=http://trimorphodons.appspot.com/login">
-					<img src="/img/login-via-facebook.png" alt="login" id="login">
+					<img src="/img/login-via-facebook.png" alt="login">
 					</a>
 					<!-- <input class="input" type="text" placeholder="Kasutajanimi">
 					<input class="input" type="password" placeholder="Parool">
@@ -305,7 +302,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					<h3>&#60;E-mail&#62;</h3>
 					<h3>&#60;Telefoninumber&#62;</h3>
 					<form action="javascript:void(0)">
-						<button class="kinnitus-btn" id="katkestan" type="submit" onclick="kandideeriKatkestan()">Katkestan</button>
+						<button class="kinnitus-btn" type="submit" onclick="kandideeriKatkestan()">Katkestan</button>
 					</form>
 					<form action="javascript:void(0)">
 						<button class="kinnitus-btn" type="submit" onclick="kandideeriKinnitan()">Kinnitan</button>
@@ -321,7 +318,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					<h2>&#60;Erakond&#62;</h2>
 					
 					<form action="javascript:void(0)">
-						<button class="kinnitus-btn" id="katkestan" type="submit" onclick="valimaKatkestan()">Katkestan</button>
+						<button class="kinnitus-btn" type="submit" onclick="valimaKatkestan()">Katkestan</button>
 					</form>
 					<form action="javascript:void(0)">
 						<button class="kinnitus-btn" type="submit" onclick="valimaKinnitan()">Kinnitan</button>
@@ -333,7 +330,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			<div class="kinnitus">
 				<h2>Tere Harald Hamster!</h2>
 				<h3>Piirkond: Järvamaa</h3>
-				<form action="" id="haaletamine-valik" name="haaletajaValik">
+				<form id="haaletamine-valik" name="haaletajaValik">
 
 				<!--<select>
 					<option selected disabled>Vali Erakond</option>
@@ -386,8 +383,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		
 		<div class="jalus">
 			<div class="valid">
-				<p><a href="http://jigsaw.w3.org/css-validator/check/referer"><img id="valid-img" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" /></a></p>
-				<p><img id="valid-img" src="./img/html5_badge.png" alt="Valid HTML5!" /></p><p>Rakenduses realiseeritud e-valimiste näide on realiseeritud tehnoloogiate praktiseerimise eesmärgil ning ei ole mõeldud reaalsete e-valimiste korraldamiseks. Kokkulangevused reaalse e-valimiste protsessiga on juhuslikud.</p>
+				<p><a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" /></a></p>
+				<p><img src="./img/html5_badge.png" alt="Valid HTML5!" /></p><p>Rakenduses realiseeritud e-valimiste näide on realiseeritud tehnoloogiate praktiseerimise eesmärgil ning ei ole mõeldud reaalsete e-valimiste korraldamiseks. Kokkulangevused reaalse e-valimiste protsessiga on juhuslikud.</p>
 			</div>
 		</div>
 		
