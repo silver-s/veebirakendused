@@ -1,3 +1,12 @@
+7. etapp
+================================
+
+Raport 7. etapi ülesannete kohta: _7.praktikumi.raport.pdf_
+
+JMeter testplaan: _Test Plan.jmx_
+
+
+
 6. etapi installatsioonijuhend
 ================================
 
