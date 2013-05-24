@@ -18,7 +18,7 @@ onOpened = function() {
 
 onError = function() {
 	alert("Error is <br/>"+error.description+" <br /> and HTML code"+error.code);
-}
+};
 
 onMessage = function() {
 	$('#tabel tr:gt(0)').remove();

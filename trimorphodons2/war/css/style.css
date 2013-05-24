@@ -307,7 +307,7 @@ a.notactive {
 	color: #FF0000;
 }
 
-#valid-img {
+.valid-img {
 	float:left;
 	border:0;
 	height:31px;
